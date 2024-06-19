@@ -11,7 +11,8 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/register', { name, email, password });
+      const response = await axios.post('http://localhost:7000/register', { name, email, password });
+      console.log(response.data); // Aquí puedes procesar la respuesta del servidor
       navigate('/login');
     } catch (error) {
       console.error('Error al registrar usuario:', error);
@@ -21,7 +22,7 @@ const Register = () => {
 
   return (
     <form onSubmit={handleRegister}>
-      <h2>Registro</h2>
+      <h2>Registrarse</h2>
       <label>
         Nombre:
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -34,7 +35,7 @@ const Register = () => {
         Contraseña:
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </label>
-      <button type="submit">Registrar</button>
+      <button type="submit">Registrarse</button>
     </form>
   );
 };

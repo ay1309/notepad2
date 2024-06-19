@@ -10,7 +10,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/login', { email, password });
+      const response = await axios.post('http://localhost:7000/login', { email, password });
+      console.log(response.data); // procesar la respuesta del servidor
       navigate('/home');
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
