@@ -20,23 +20,32 @@ const Register = () => {
     }
   };
 
+  const handleHomeRedirect = () => {
+    navigate('/');
+  };
+
   return (
-    <form onSubmit={handleRegister}>
-      <h2>Registrarse</h2>
-      <label>
-        Nombre:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-      </label>
-      <label>
-        Email:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      </label>
-      <label>
-        Contraseña:
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-      </label>
-      <button type="submit">Registrarse</button>
-    </form>
+    <div>
+      <form onSubmit={handleRegister}>
+        <h2>Registrarse</h2>
+        <label>
+          Nombre:
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        </label>
+        <label>
+          Email:
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </label>
+        <label>
+          Contraseña:
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </label>
+        <button type="submit">Registrarse</button>
+      </form>
+      <div>
+        <button onClick={handleHomeRedirect}>Regresar</button>
+      </div>
+    </div>
   );
 };
 
