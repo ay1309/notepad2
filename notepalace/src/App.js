@@ -1,38 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [newItem, setNewItem] = useState('');
+    return (
+        <Router>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/login">Login</Link>
+                        </li>
+                        <li>
+                            <Link to="/register">Register</Link>
+                        </li>
+                    </ul>
+                </nav>
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/items')
-      .then(response => setItems(response.data))
-      .catch(error => console.error('There was an error fetching the items!', error));
-  }, []);
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                </Routes>
+            </div>
+        </Router>
+    );
+}
 
-  const addItem = () => {
-    axios.post('http://localhost:5000/api/items', { name: newItem })
-      .then(response => setItems([...items, response.data]))
-      .catch(error => console.error('There was an error adding the item!', error));
-  };
-
-  return (
-    <div>
-      <h1>Items List</h1>
-      <ul>
-        {items.map(item => (
-          <li key={item._id}>{item.name}</li>
-        ))}
-      </ul>
-      <input 
-        type="text" 
-        value={newItem} 
-        onChange={e => setNewItem(e.target.value)} 
-      />
-      <button onClick={addItem}>Add Item</button>
-    </div>
-  );
+//para proteger rutas privadas
+function PrivateRoute({ children }) {
+    const isAuthenticated = !!localStorage.getItem('user'); //autenticación
+    return isAuthenticated ? children : <Navigate to="/login" />;
 }
 
 export default App;
