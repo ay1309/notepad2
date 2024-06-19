@@ -3,8 +3,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header style={{ backgroundColor: 'purple', color: 'white', padding: '10px', textAlign: 'center' }}>
-      <h1>Gatos</h1>
+    <header style={{ backgroundColor: 'transparent', color: 'black', padding: '10px', textAlign: 'center' }}>
+      <h1>NotePalace</h1>
     </header>
   );
 };
