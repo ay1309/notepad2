@@ -11,27 +11,34 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:7000/login', { email, password });
-      console.log(response.data);
+      console.log(response.data); // Aquí puedes procesar la respuesta del servidor
       navigate('/home');
     } catch (error) {
-      console.error('Error al iniciar sesión:', error.response ? error.response.data : error);
+      console.error('Error al iniciar sesión:', error);
       alert('Inicio de sesión fallido');
     }
   };
 
+  const handleHomeRedirect = () => {
+    navigate('/');
+  };
+
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Iniciar Sesión</h2>
-      <label>
-        Email:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      </label>
-      <label>
-        Contraseña:
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-      </label>
-      <button type="submit">Iniciar Sesión</button>
-    </form>
+    <div>
+      <form onSubmit={handleLogin}>
+        <h2>Iniciar Sesión</h2>
+        <label>
+          Email:
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </label>
+        <label>
+          Contraseña:
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </label>
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+      <button onClick={handleHomeRedirect}>Regresar</button>
+    </div>
   );
 };
 

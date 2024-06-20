@@ -12,12 +12,16 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:7000/register', { name, email, password });
-      console.log(response.data);
+      console.log(response.data); // Aquí puedes procesar la respuesta del servidor
       navigate('/login');
     } catch (error) {
-      console.error('Error al registrar usuario:', error.response ? error.response.data : error);
+      console.error('Error al registrar usuario:', error);
       alert('Registro fallido');
     }
+  };
+
+  const handleHomeRedirect = () => {
+    navigate('/');
   };
 
   return (
@@ -38,9 +42,7 @@ const Register = () => {
         </label>
         <button type="submit">Registrarse</button>
       </form>
-      <div>
-        <button onClick={() => navigate('/')}>Regresar</button>
-      </div>
+      <button onClick={handleHomeRedirect}>Regresar</button>
     </div>
   );
 };
