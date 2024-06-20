@@ -5,7 +5,7 @@ import fondoLago from './fondoLago.jpg';
 const Home = () => {
 
   const backgroundStyle = {
-    backgroundImage: 'url(${fondoLago})',
+    backgroundImage: `url(${fondoLago})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
@@ -14,6 +14,12 @@ const Home = () => {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
+  };
+
+  const boxStyle = {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Blanco semitransparente
+    padding: '20px',
+    borderRadius: '10px',
   };
 
   const navigate = useNavigate();
@@ -29,9 +35,11 @@ const Home = () => {
   
   return (
     <div style={backgroundStyle}>
-      <h2>Bienvenido</h2>
-      <button onClick={handleLoginRedirect}>Iniciar Sesión</button>
-      <button onClick={handleRegisterRedirect}>Registrarse</button>
+       <div style={boxStyle}>
+        <h2>Bienvenido</h2>
+        <button onClick={handleLoginRedirect}>Iniciar Sesión</button>
+        <button onClick={handleRegisterRedirect}>Registrarse</button>
+      </div>
     </div>
   );
 };
