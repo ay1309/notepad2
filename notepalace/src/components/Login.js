@@ -11,8 +11,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:7000/login', { email, password });
-      console.log(response.data); // Aquí puedes procesar la respuesta del servidor
-      navigate('/home');
+      console.log(response.data); 
+      navigate('/notas'); // notas después del login exitoso
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
       alert('Inicio de sesión fallido');
@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   const handleHomeRedirect = () => {
-    navigate('/');
+    navigate('/home'); 
   };
 
   return (

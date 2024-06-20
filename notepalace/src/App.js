@@ -5,17 +5,21 @@ import Register from './components/Register';
 import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Notas from './components/Notas'; 
 
 const App = () => {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div className="container mt-3">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/notas" element={<Notas />} /> 
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
       <Footer />
     </Router>
   );

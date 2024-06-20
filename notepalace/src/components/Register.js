@@ -12,8 +12,8 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:7000/register', { name, email, password });
-      console.log(response.data); // Aquí puedes procesar la respuesta del servidor
-      navigate('/login');
+      console.log(response.data); // 
+      navigate('/login'); // 
     } catch (error) {
       console.error('Error al registrar usuario:', error);
       alert('Registro fallido');
@@ -21,7 +21,7 @@ const Register = () => {
   };
 
   const handleHomeRedirect = () => {
-    navigate('/');
+    navigate('/home'); 
   };
 
   return (
