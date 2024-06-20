@@ -25,11 +25,8 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h2>Inicio</h2>
-
-    <div style={backgroundStyle} >
-      <h2>NOTEPalace</h2>
+      <div style={backgroundStyle} >
+      <h2>Bienvenido</h2>
       <button onClick={handleLoginRedirect}>Iniciar Sesión</button>
       <button onClick={handleRegisterRedirect}>Registrarse</button>
     </div>
