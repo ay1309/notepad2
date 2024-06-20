@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -43,6 +44,8 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+
+app.use(cors()); // Añade el middleware de CORS
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
