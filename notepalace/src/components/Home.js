@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import fondoLago from './imagenes/fondoLago.jpg';
 
 const Home = () => {
-  
+
   const backgroundStyle = {
     backgroundImage: 'url(${fondoLago})',
     backgroundSize: 'cover',
@@ -26,9 +26,7 @@ const Home = () => {
     navigate('/register');
   };
 
-
-
-
+  
   return (
     <div style={backgroundStyle}>
       <h2>Bienvenido</h2>
