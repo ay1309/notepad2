@@ -13,7 +13,7 @@ const Home = () => {
   };
 
   const backgroundStyle = {
-    backgroundImage: 'url("C:/Users/Asus/OneDrive - Instituto Politecnico Nacional/Documents/notepad2/imagenes/fondoLago.jpg")',
+    backgroundImage: 'url("C:/Users/Asus/OneDrive - Instituto Politecnico Nacional/Documents/notepad2/notepalace/src/components/imagenes/fondoLago.jpg")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
