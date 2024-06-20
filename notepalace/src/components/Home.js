@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import fondoLago from './imagenes/fondoLago.jpg';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Home = () => {
   };
 
   const backgroundStyle = {
-    backgroundImage: 'url("C:/Users/Asus/OneDrive - Instituto Politecnico Nacional/Documents/notepad2/notepalace/src/components/imagenes/fondoLago.jpg")',
+    backgroundImage: 'url(${fondoLago})',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
