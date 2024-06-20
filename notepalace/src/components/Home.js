@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div>
-      <h2>NOTEPALACE</h2>
+      <h2>Inicio</h2>
       <button onClick={handleLoginRedirect}>Iniciar Sesión</button>
       <button onClick={handleRegisterRedirect}>Registrarse</button>
     </div>
