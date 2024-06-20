@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import fondoLago from './imagenes/fondoLago.jpg';
+import fondoLago from './fondoLago.jpg';
 
 const Home = () => {
 
