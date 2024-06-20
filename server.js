@@ -63,6 +63,15 @@ app.use((req, res, next) => {
     next();
 });
 
+// Middleware para proteger rutas
+const isAuthenticated = (req, res, next) => {
+    if (req.session.user) {
+        next();
+    } else {
+        res.status(401).send('No autorizado');
+    }
+};
+
 // Archivos estáticos del build de React
 app.use(express.static(path.join(__dirname, 'notepalace/build')));
 
@@ -104,6 +113,11 @@ app.post('/register', async (req, res) => {
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.sendStatus(200);
+});
+
+// notas 
+app.get('/notas', isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, 'notepalace/build', 'index.html'));
 });
 
 app.get('*', (req, res) => {
