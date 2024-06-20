@@ -5,7 +5,7 @@ import fondoLago from './fondoLago.jpg';
 const Home = () => {
 
   const backgroundStyle = {
-    backgroundImage: 'url(${fondoLago})',
+    backgroundImage: `url(${fondoLago})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
