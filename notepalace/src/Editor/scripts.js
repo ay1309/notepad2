@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const quill = new Quill('#editor', {
+    const quill = new quill('#editor', {
         placeholder: 'Compose an epic...',
         theme: 'snow',
     });
