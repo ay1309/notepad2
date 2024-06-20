@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/notas" element={<Notas />} />
-          <Route path="/editor" element={<Editor />} /> {/* Añadir la nueva ruta para Editor */}
+          <Route path="/editor" element={<Editor />} /> {/* nueva ruta para Editor */}
           <Route path="/" element={<Home />} />
         </Routes>
       </div>

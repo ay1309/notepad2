@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import '../css/Editor.css'; // Asegúrate de tener tu CSS en esta ruta
+import '../css/Editor.css'; // el css debe estar en esta ruta
 
 const Editor = () => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -19,7 +19,7 @@ const Editor = () => {
   const savePending = () => {
     const noteContent = quillRef.current.getEditor().root.innerHTML;
     alert('Nota guardada en Tareas Pendientes: ' + noteContent);
-    // Aquí agregarías la lógica para guardar la nota en la base de datos o local storage
+    //Agregar aqui  lógica para guardar la nota en la base de datos o local storage
   };
 
   const saveFolder = () => {
@@ -27,7 +27,7 @@ const Editor = () => {
     const folder = prompt('Ingrese el nombre de la carpeta para guardar la nota:', 'Carpeta predeterminada');
     if (folder) {
       alert('Nota guardada en ' + folder + ': ' + noteContent);
-      // Aquí agregarías la lógica para guardar la nota en la carpeta especificada en la base de datos o local storage
+      // lógica para guardar la nota en la carpeta especificada en la base de datos o local storage
     }
   };
 
