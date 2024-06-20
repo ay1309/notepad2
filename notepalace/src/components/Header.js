@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header style={{ backgroundColor: 'transparent', color: 'black', padding: '10px', textAlign: 'center' }}>
-      <h1>NotePalace</h1>
+      <h1>NOTEPalace</h1>
     </header>
   );
 };
