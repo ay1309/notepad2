@@ -1,6 +1,10 @@
 import React from 'react';
 
+
 const Notas = () => {
+
+
+
   return (
     <div>
       <h2>Notas</h2>
