@@ -4,17 +4,35 @@ import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import session from 'express-session';
+import dotenv from 'dotenv';
+import cors from 'cors';
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port = 7000;
+const port = process.env.PORT || 7000;
 
-const mongoUri = 'mongodb+srv://plskyay1309:w8SEcKM5ghaEAJbB@cluster0.au9yjrx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoUri = process.env.MONGO_URI;
+
+if (!mongoUri) {
+    console.error('MONGO_URI is not defined in .env file');
+    process.exit(1); // Exit the application
+}
 
 mongoose.connect(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    ssl: true,
+    tlsAllowInvalidCertificates: true,
+    tlsAllowInvalidHostnames: true
+}).then(() => {
+    console.log('Mongoose connected to ' + mongoUri);
+}).catch((err) => {
+    console.error('Mongoose connection error: ' + err);
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('Mongoose disconnected');
 });
 
 mongoose.set('strictQuery', false);
@@ -27,11 +45,13 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+app.use(cors()); // Añade el middleware de CORS
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(session({
-    secret: 'your-secret-key',
+    secret: process.env.SESSION_SECRET || 'default-secret-key',
     resave: false,
     saveUninitialized: false,
 }));
@@ -43,7 +63,7 @@ app.use((req, res, next) => {
     next();
 });
 
-//archivos estáticos del build de React
+// Archivos estáticos del build de React
 app.use(express.static(path.join(__dirname, 'notepalace/build')));
 
 app.post('/login', async (req, res) => {
@@ -85,7 +105,6 @@ app.get('/logout', (req, res) => {
     req.session.destroy();
     res.sendStatus(200);
 });
-
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'notepalace/build', 'index.html'));

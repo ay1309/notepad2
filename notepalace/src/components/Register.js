@@ -42,9 +42,7 @@ const Register = () => {
         </label>
         <button type="submit">Registrarse</button>
       </form>
-      <div>
-        <button onClick={handleHomeRedirect}>Regresar</button>
-      </div>
+      <button onClick={handleHomeRedirect}>Regresar</button>
     </div>
   );
 };

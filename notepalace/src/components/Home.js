@@ -25,6 +25,8 @@ const Home = () => {
   };
 
   return (
+    <div>
+      <h2>Inicio</h2>
 
     <div style={backgroundStyle} >
       <h2>NOTEPalace</h2>
