@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import FondoBosque from './FondoBosque.jpg';
 
 const Login = () => {
-
   const backgroundStyle = {
     backgroundImage: `url(${FondoBosque})`,
     backgroundSize: 'cover',
@@ -23,19 +22,18 @@ const Login = () => {
     borderRadius: '10px',
   };
 
-
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [contraseña, setContraseña] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:7000/login', { email, password });
+      const response = await axios.post('http://localhost:7000/api/user/login', { email, contraseña });
       console.log(response.data); 
-      navigate('/notas'); // notas después del login exitoso
+      navigate('/notas'); // Redirigir a /notas después del login exitoso
     } catch (error) {
-      console.error('Error al iniciar sesión:', error);
+      console.error('Error al iniciar sesión:', error.response ? error.response.data : error.message);
       alert('Inicio de sesión fallido');
     }
   };
@@ -47,19 +45,19 @@ const Login = () => {
   return (
     <div style={backgroundStyle}>
       <div style={boxStyle}>
-       <form onSubmit={handleLogin}>
-         <h2>Iniciar Sesión</h2>
-         <label>
-           Email:
-           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-         </label>
-         <label>
-           Contraseña:
-           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-         </label>
-         <button type="submit">Iniciar Sesión</button>
-       </form>
-       <button onClick={handleHomeRedirect}>Regresar</button>
+        <form onSubmit={handleLogin}>
+          <h2>Iniciar Sesión</h2>
+          <label>
+            Email:
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </label>
+          <label>
+            Contraseña:
+            <input type="password" value={contraseña} onChange={(e) => setContraseña(e.target.value)} required />
+          </label>
+          <button type="submit">Iniciar Sesión</button>
+        </form>
+        <button onClick={handleHomeRedirect}>Regresar</button>
       </div>
     </div>
   );

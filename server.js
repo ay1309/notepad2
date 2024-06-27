@@ -9,6 +9,7 @@ import userRoutes from './controllers/user.js'; // Importa las rutas de usuario
 import apunteRoutes from './controllers/apunte.js'; // Importa las rutas de apunte
 import carpetaRoutes from './controllers/carpeta.js'; // Importa las rutas de carpeta
 import notaRoutes from './controllers/nota.js'; // Importa las rutas de nota
+import tareaRoutes from './controllers/tarea.js'; // Importa las rutas de tareas
 
 dotenv.config();
 
@@ -64,6 +65,9 @@ app.use('/api/carpeta', carpetaRoutes);
 
 // Usa las rutas de nota
 app.use('/api/nota', notaRoutes);
+
+// Usa las rutas de tarea
+app.use('/api/tarea', tareaRoutes);
 
 app.get('/notas', (req, res) => {
     res.sendFile(path.join(__dirname, 'notepalace/build', 'index.html'));
