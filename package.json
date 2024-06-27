@@ -21,7 +21,7 @@
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
     "mongodb": "^6.7.0",
-    "mongoose": "^8.4.3",
+    "mongoose": "^8.4.4",
     "moongoose": "^0.0.5",
     "react-router-dom": "^6.23.1",
     "session": "^0.1.0"
