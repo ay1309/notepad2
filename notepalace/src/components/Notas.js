@@ -44,7 +44,7 @@ const Notas = () => {
     <div className="notas-container" style={backgroundStyle}>
       <header className="notas-header">
         <div className="notas-menu-icon" onClick={toggleMenu}>&#9776;</div>
-        <h1>NOTEPalace</h1>
+        <h1>Tu espacio</h1>
       </header>
       {menuVisible && (
         <div id="menu" className="notas-dropdown-menu">
@@ -58,7 +58,7 @@ const Notas = () => {
       )}
       <main className="notas-main">
         <section className="notas-user-space">
-          <h2>Charlotte's space</h2>
+          <h2>User's space</h2>
           <h3>Tareas pendientes</h3>
           <ul id="task-list">
             {taskList.map((task, index) => (
