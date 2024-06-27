@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../App.css'; // Para estilos globales, mantener esta línea
-import backgroundNotes from './BackgroundNotes.png'; // Malditas rutas 
+import backgroundNotes from './fondoMontaña.jpg'; // Malditas rutas 
 
 const Notas = () => {
   const [menuVisible, setMenuVisible] = useState(false);
